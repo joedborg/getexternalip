@@ -11,7 +11,7 @@ func errorCheck(err error) {
 	}
 }
 
-func getExternalIP() string {
+func GetExternalIP() string {
 	resp, err := http.Get("http://echoip.com")
 	errorCheck(err)
 	body, err := ioutil.ReadAll(resp.Body)

@@ -5,16 +5,8 @@ import (
 	"net/http"
 )
 
-func errorCheck(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func GetExternalIP() string {
+func GetExternalIP() (string, error) {
 	resp, err := http.Get("http://echoip.com")
-	errorCheck(err)
 	body, err := ioutil.ReadAll(resp.Body)
-	errorCheck(err)
-	return string(body)
+	return string(body), err
 }
